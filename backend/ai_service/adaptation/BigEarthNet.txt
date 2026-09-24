@@ -1,0 +1,22 @@
+# BigEarthNet-19 Standard Remote Sensing Land-Cover Classes
+# Reference: Sumbul et al., "BigEarthNet: A Large-Scale Benchmark Dataset for Remote Sensing Image Understanding", IEEE IGARSS 2019 / 2020
+# Format: Index | Class Name | Description | Group
+0 | Urban fabric | Continuous and discontinuous residential structures and urban settlements | Artificial surfaces
+1 | Industrial or commercial units | Industrial factories, logistics hubs, commercial infrastructure | Artificial surfaces
+2 | Arable land | Non-irrigated and permanently irrigated arable agricultural land | Agricultural areas
+3 | Permanent crops | Vineyards, fruit trees, berry plantations, olive groves | Agricultural areas
+4 | Pastures | Dense grassland cover grazed by livestock | Agricultural areas
+5 | Complex cultivation patterns | Mosaic of small parcel croplands with mixed crops | Agricultural areas
+6 | Land principally occupied by agriculture with significant natural vegetation | Farmlands interspersed with trees and hedgerows | Agricultural areas
+7 | Agro-forestry areas | Annual crops or grazing land under forest canopy | Agricultural areas
+8 | Broad-leaved forest | Deciduous trees, broadleaf forest canopy | Forest and semi-natural areas
+9 | Coniferous forest | Evergreen coniferous trees (pines, firs, spruces) | Forest and semi-natural areas
+10 | Mixed forest | Co-occurring broadleaf and needleleaf tree canopies | Forest and semi-natural areas
+11 | Natural grassland and sparsely vegetated areas | Steppes, subalpine grasslands, sparse scrub | Forest and semi-natural areas
+12 | Moors, heathland and sclerophyllous vegetation | Bushy vegetation, scrublands, arid shrubs | Forest and semi-natural areas
+13 | Transitional woodland, shrub | Regrowth forest, clearcuts, bushy forest borders | Forest and semi-natural areas
+14 | Beaches, dunes, sands | Coastal sandbanks, dunes, river sand deposits | Open spaces with little or no vegetation
+15 | Inland wetlands | Inland marshes, peat bogs, waterlogged soil basins | Wetlands
+16 | Coastal wetlands | Salt marshes, tidal mudflats, saline coastal basins | Wetlands
+17 | Inland waters | Rivers, canals, freshwater lakes, reservoirs, ponds | Water bodies
+18 | Marine waters | Coastal seas, ocean waters, estuaries, lagoons | Water bodies

@@ -1,0 +1,139 @@
+{
+  "app_name": "SatQuery AI",
+  "tagline": "See India. Ask More. Know Better.",
+  "supporting_line": "Upload satellite imagery, ask questions in English, Hindi or Hinglish, and get explainable satellite insights with visual evidence.",
+  "search_placeholder": "Search location in India — state, district, city or coordinates...",
+  "nav": {
+    "home": "Home",
+    "image_analysis": "Image Analysis",
+    "explore_india": "Explore India",
+    "compare": "Change Comparison",
+    "disaster_mode": "Disaster Mode",
+    "time_machine": "Time Machine",
+    "my_history": "My History",
+    "saved_results": "Saved Results",
+    "datasets": "Datasets",
+    "tools_indices": "Tools & Indices",
+    "reports": "Reports",
+    "new_investigation": "+ New Investigation"
+  },
+  "hero": {
+    "headline_1": "Ask about India.",
+    "headline_2": "Understand what the",
+    "headline_accent": "satellite sees.",
+    "subheadline": "Upload satellite imagery or ask a question. SatQuery analyzes, explains and shows visual evidence — in English, Hindi or Hinglish.",
+    "cta_upload": "Upload Image",
+    "cta_ask": "Ask SatQuery",
+    "cta_explore": "Explore India",
+    "cta_demo": "Try Demo"
+  },
+  "composer": {
+    "tab_ask": "Ask SatQuery",
+    "tab_upload": "Upload Image",
+    "tab_compare": "Compare Images",
+    "placeholder_ask": "Ask anything about India's satellite imagery...",
+    "placeholder_upload": "Upload image and ask what to identify...",
+    "btn_send": "Analyze",
+    "attach_tooltip": "Attach satellite raster (GeoTIFF / PNG / JPG)"
+  },
+  "coverage": {
+    "title": "INDIA COVERAGE",
+    "badge": "Pan-India Reference",
+    "states": "28 States",
+    "uts": "8 UTs",
+    "districts": "700+ Districts",
+    "villages": "61K+ Villages",
+    "motto_1": "Built for a Safer, Greener India",
+    "motto_2": "Powered by AI • Driven by Earth Observation"
+  },
+  "history": {
+    "title": "MY HISTORY",
+    "subtitle": "Your previous satellite investigations across India.",
+    "recent_title": "RECENT INVESTIGATIONS",
+    "view_all": "View All",
+    "search": "Search investigations...",
+    "clear_all": "Clear History",
+    "clear_confirm": "Are you sure you want to clear your entire investigation history? This action cannot be undone.",
+    "filter_all": "All",
+    "filter_image": "Image Analysis",
+    "filter_change": "Change Detection",
+    "filter_disaster": "Disaster",
+    "filter_object": "Object Detection",
+    "filter_vegetation": "Vegetation",
+    "filter_water": "Water",
+    "filter_saved": "Saved",
+    "sort_newest": "Newest",
+    "sort_oldest": "Oldest",
+    "sort_location": "Location",
+    "sort_type": "Type",
+    "open": "Open",
+    "duplicate": "Duplicate",
+    "save": "Save",
+    "delete": "Delete",
+    "empty": "No investigations found. Launch a new investigation to see it here."
+  },
+  "saved_locations": {
+    "title": "SAVED LOCATIONS",
+    "manage": "Manage",
+    "hint": "Click any location to zoom and restore workspace context"
+  },
+  "upload": {
+    "drop_zone_title": "DROP SATELLITE IMAGE HERE",
+    "drop_zone_sub": "or click to browse from your device",
+    "supported_formats": "Supports PNG, JPG, JPEG, TIFF, GeoTIFF",
+    "max_size": "Maximum upload size: 50MB",
+    "image_preview": "IMAGE PREVIEW",
+    "metadata_drawer_title": "GEOSPATIAL METADATA DRAWER",
+    "dimensions": "Dimensions",
+    "bands": "Spectral Bands",
+    "crs": "CRS",
+    "bounds": "Geographic Bounds",
+    "resolution": "Spatial Resolution",
+    "acquisition_date": "Acquisition Date",
+    "uncalibrated_note": "Standard optical image. Geodetic coordinate reference system (CRS) tags are not embedded in this format."
+  },
+  "response": {
+    "answer": "ANSWER",
+    "why": "WHY?",
+    "explanation": "EXPLANATION",
+    "evidence": "EVIDENCE",
+    "technical_details": "TECHNICAL DETAILS",
+    "view_technical": "View Technical Details & Provenance",
+    "next_action": "NEXT ACTION",
+    "action_map": "Show on Map",
+    "action_compare": "Compare Dates",
+    "action_followup": "Ask Follow-up",
+    "action_save": "Save Result",
+    "action_report": "Generate Report"
+  },
+  "disaster": {
+    "title": "Disaster Mode & Hazard Triage",
+    "subtitle": "All-weather Earth observation for rapid disaster response across India",
+    "types": {
+      "flood": "Flood Inundation",
+      "wildfire": "Wildfire & Burn Scars",
+      "cyclone": "Cyclone Impact",
+      "earthquake": "Structural Damage",
+      "landslide": "Landslide Debris",
+      "drought": "Drought & Soil Moisture"
+    },
+    "status_detected": "DETECTED",
+    "status_possible": "POSSIBLE",
+    "status_review": "REQUIRES REVIEW"
+  },
+  "time_machine": {
+    "title": "Time Machine — Multi-Year Satellite Temporal Evolution",
+    "subtitle": "Inspect how land cover, urban expansion, and water bodies evolved across India from 2018 to 2026",
+    "btn_play": "Play Evolution",
+    "btn_pause": "Pause",
+    "btn_prev": "Previous Epoch",
+    "btn_next": "Next Epoch",
+    "what_changed": "What changed over time?"
+  },
+  "status_indicators": {
+    "live": "LIVE ANALYSIS",
+    "demo": "DEMO MODE",
+    "fallback": "FALLBACK",
+    "insufficient": "INSUFFICIENT EVIDENCE"
+  }
+}

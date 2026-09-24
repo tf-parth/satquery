@@ -1,0 +1,139 @@
+{
+  "app_name": "SatQuery AI",
+  "tagline": "भारत को देखें। अधिक पूछें। बेहतर समझें।",
+  "supporting_line": "सैटेलाइट इमेज अपलोड करें, अंग्रेज़ी, हिंदी या हिंग्लिश में सवाल पूछें, और दृश्य साक्ष्यों के साथ स्पष्ट उपग्रह विश्लेषण प्राप्त करें।",
+  "search_placeholder": "भारत का कोई भी स्थान खोजें — राज्य, जिला, शहर या निर्देशांक...",
+  "nav": {
+    "home": "होम",
+    "image_analysis": "इमेज विश्लेषण",
+    "explore_india": "भारत अन्वेषण",
+    "compare": "परिवर्तन तुलना",
+    "disaster_mode": "आपदा मोड",
+    "time_machine": "टाइम मशीन",
+    "my_history": "मेरा इतिहास",
+    "saved_results": "सहेजे गए परिणाम",
+    "datasets": "डेटासेट्स",
+    "tools_indices": "टूल्स व सूचकांक",
+    "reports": "रिपोर्ट्स",
+    "new_investigation": "+ नई जांच शुरू करें"
+  },
+  "hero": {
+    "headline_1": "भारत के बारे में पूछें।",
+    "headline_2": "समझें जो उपग्रह",
+    "headline_accent": "देखता है।",
+    "subheadline": "सैटेलाइट इमेज अपलोड करें या कोई सवाल पूछें। SatQuery दृश्य का विश्लेषण करता है और सरल भाषा में दृश्य साक्ष्य प्रस्तुत करता है।",
+    "cta_upload": "इमेज अपलोड करें",
+    "cta_ask": "SatQuery से पूछें",
+    "cta_explore": "भारत का अन्वेषण करें",
+    "cta_demo": "डेमो आज़माएं"
+  },
+  "composer": {
+    "tab_ask": "सवाल पूछें",
+    "tab_upload": "इमेज अपलोड",
+    "tab_compare": "तुलना करें",
+    "placeholder_ask": "भारत के उपग्रह डेटा के बारे में कुछ भी पूछें...",
+    "placeholder_upload": "इमेज अपलोड करें और पूछें क्या पहचानना है...",
+    "btn_send": "विश्लेषण करें",
+    "attach_tooltip": "सैटेलाइट रास्टर संलग्न करें (GeoTIFF / PNG / JPG)"
+  },
+  "coverage": {
+    "title": "अखिल भारतीय कवरेज",
+    "badge": "संदर्भ डेटा",
+    "states": "28 राज्य",
+    "uts": "8 केंद्र शासित प्रदेश",
+    "districts": "700+ जिले",
+    "villages": "61K+ गाँव",
+    "motto_1": "सुरक्षित और हरित भारत के लिए समर्पित",
+    "motto_2": "AI द्वारा संचालित • पृथ्वी अवलोकन द्वारा समर्थित"
+  },
+  "history": {
+    "title": "मेरा इतिहास",
+    "subtitle": "भारत भर में आपकी पिछली उपग्रह जांचें।",
+    "recent_title": "हालिया जांचें",
+    "view_all": "सभी देखें",
+    "search": "जांच खोजें...",
+    "clear_all": "इतिहास साफ़ करें",
+    "clear_confirm": "क्या आप वाकई संपूर्ण इतिहास हटाना चाहते हैं? यह क्रिया वापस नहीं ली जा सकती।",
+    "filter_all": "सभी",
+    "filter_image": "इमेज विश्लेषण",
+    "filter_change": "परिवर्तन पहचान",
+    "filter_disaster": "आपदा",
+    "filter_object": "वस्तु पहचान",
+    "filter_vegetation": "वनस्पति",
+    "filter_water": "जल निकाय",
+    "filter_saved": "सहेजे गए",
+    "sort_newest": "नवीनतम",
+    "sort_oldest": "पुरातन",
+    "sort_location": "स्थान",
+    "sort_type": "प्रकार",
+    "open": "खोलें",
+    "duplicate": "प्रतिलिपि बनाएं",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "empty": "कोई पिछली जांच नहीं मिली। यहाँ देखने के लिए नई जांच शुरू करें।"
+  },
+  "saved_locations": {
+    "title": "सहेजे गए स्थान",
+    "manage": "प्रबंधन करें",
+    "hint": "मानचित्र को ज़ूम करने और कार्यक्षेत्र को पुनर्स्थापित करने के लिए क्लिक करें"
+  },
+  "upload": {
+    "drop_zone_title": "सैटेलाइट इमेज यहाँ छोड़ें",
+    "drop_zone_sub": "या डिवाइस से चुनने के लिए क्लिक करें",
+    "supported_formats": "PNG, JPG, JPEG, TIFF, GeoTIFF समर्थित",
+    "max_size": "अधिकतम आकार: 50MB",
+    "image_preview": "इमेज पूर्वावलोकन",
+    "metadata_drawer_title": "भू-स्थानिक मेटाडेटा दराज",
+    "dimensions": "आयाम",
+    "bands": "स्पेक्ट्रल बैंड्स",
+    "crs": "कोऑर्डिनेट सिस्टम (CRS)",
+    "bounds": "भौगोलिक सीमाएं",
+    "resolution": "स्थानिक रिज़ॉल्यूशन",
+    "acquisition_date": "अधिग्रहण तिथि",
+    "uncalibrated_note": "मानक ऑप्टिकल इमेज। इस प्रारूप में कोई भू-स्थानिक CRS टैग अंतर्निहित नहीं हैं।"
+  },
+  "response": {
+    "answer": "उत्तर",
+    "why": "कारण (WHY?)",
+    "explanation": "व्याख्या",
+    "evidence": "प्रमाण",
+    "technical_details": "तकनीकी विवरण",
+    "view_technical": "तकनीकी विवरण व प्रमाण (Provenance)",
+    "next_action": "अगली कार्रवाई",
+    "action_map": "मानचित्र पर दिखाएं",
+    "action_compare": "तारीखों की तुलना करें",
+    "action_followup": "अनुवर्ती सवाल पूछें",
+    "action_save": "परिणाम सहेजें",
+    "action_report": "रिपोर्ट बनाएं"
+  },
+  "disaster": {
+    "title": "आपदा मोड व जोखिम मूल्यांकन",
+    "subtitle": "भारत भर में त्वरित आपदा प्रतिक्रिया के लिए सर्व-मौसम पृथ्वी अवलोकन",
+    "types": {
+      "flood": "बाढ़ जलमग्नता",
+      "wildfire": "जंगल की आग",
+      "cyclone": "चक्रवात प्रभाव",
+      "earthquake": "संरचनात्मक क्षति",
+      "landslide": "भूस्खलन मलबा",
+      "drought": "सूखा व मृदा नमी"
+    },
+    "status_detected": "पहचाना गया (DETECTED)",
+    "status_possible": "संभावित (POSSIBLE)",
+    "status_review": "समीक्षा आवश्यक (REQUIRES REVIEW)"
+  },
+  "time_machine": {
+    "title": "टाइम मशीन — बहु-वर्षीय सैटेलाइट कालिक विकास",
+    "subtitle": "2018 से 2026 तक भारत भर में भूमि उपयोग, शहरीकरण और जल निकायों के विकास का निरीक्षण करें",
+    "btn_play": "विकास चलाएं",
+    "btn_pause": "रोकें",
+    "btn_prev": "पिछला काल",
+    "btn_next": "अगला काल",
+    "what_changed": "समय के साथ क्या बदला?"
+  },
+  "status_indicators": {
+    "live": "लाइव विश्लेषण",
+    "demo": "डेमो मोड",
+    "fallback": "फ़ॉलबैक",
+    "insufficient": "अपर्याप्त साक्ष्य"
+  }
+}
