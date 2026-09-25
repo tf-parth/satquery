@@ -29,6 +29,7 @@ import {
 import { fetchChangeDatasets, runChangeComparisonApi, queryIndiaApi } from '../utils/api';
 import { saveInvestigation } from '../utils/historyStorage';
 import { INDIA_ADMIN_REGIONS } from '../../../backend/src/services/demoData.js';
+import MarkdownRenderer from './MarkdownRenderer';
 
 // 1. National Domain Item
 const ALL_INDIA_ITEM = {
@@ -1050,9 +1051,9 @@ export default function ComparisonView({
                     <Sparkles size={13} />
                     <span>PAN-INDIA CHANGE INTELLIGENCE EXPLANATION:</span>
                   </div>
-                  <p className="ai-expl-text font-body">
-                    {comparisonResult.explanation}
-                  </p>
+                  <div className="ai-expl-text font-body">
+                    <MarkdownRenderer content={comparisonResult.explanation} />
+                  </div>
                 </div>
 
                 {/* Pan-India Interactive Map (Requirement 13) */}
@@ -1271,9 +1272,9 @@ export default function ComparisonView({
                       <Sparkles size={13} />
                       <span>SATQUERY AI INTELLIGENCE EXPLANATION:</span>
                     </div>
-                    <p className="ai-expl-text font-body">
-                      {comparisonResult.explanation}
-                    </p>
+                    <div className="ai-expl-text font-body">
+                      <MarkdownRenderer content={comparisonResult.explanation} />
+                    </div>
                   </div>
 
                   <div className="comp-results-actions font-mono text-xs">
@@ -1312,7 +1313,13 @@ export default function ComparisonView({
                 {followupChat.map((turn, cIdx) => (
                   <div key={cIdx} className={`chat-bubble ${turn.role}`}>
                     <span className="role-tag font-mono">{turn.role === 'user' ? 'YOU' : 'SATQUERY'}</span>
-                    <p className="font-body text-sm">{turn.text}</p>
+                    {turn.role === 'user' ? (
+                      <p className="font-body text-sm">{turn.text}</p>
+                    ) : (
+                      <div className="font-body text-sm">
+                        <MarkdownRenderer content={turn.text} />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

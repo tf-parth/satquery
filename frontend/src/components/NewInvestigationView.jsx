@@ -19,6 +19,7 @@ import {
   FileText
 } from 'lucide-react';
 import { queryIndiaApi, queryAgentApi } from '../utils/api';
+import MarkdownRenderer from './MarkdownRenderer';
 
 export default function NewInvestigationView({ 
   onSaveInvestigation, 
@@ -770,8 +771,8 @@ export default function NewInvestigationView({
                     ) : (
                       <>
                         {/* Real Gemini Response Text */}
-                        <div className="assistant-lead-text font-body" style={{ whiteSpace: 'pre-wrap' }}>
-                          {turn.text}
+                        <div className="assistant-lead-text font-body">
+                          <MarkdownRenderer content={turn.text} />
                         </div>
 
                         {/* Optional Telemetry Details & Evidence */}

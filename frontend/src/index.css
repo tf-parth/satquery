@@ -3073,6 +3073,238 @@ code, pre, .font-mono {
   color: var(--text-primary);
 }
 
+/* ==========================================================================
+   SatQuery AI - Markdown Formatting Styles
+   Headings, Bold, Italic, Bullet Lists, Numbered Lists, Paragraphs, Code Blocks, Tables
+   ========================================================================== */
+
+.satquery-markdown {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.satquery-markdown > *:first-child {
+  margin-top: 0 !important;
+}
+
+.satquery-markdown > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.satquery-markdown p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  line-height: 1.65;
+}
+
+.satquery-markdown h1,
+.satquery-markdown h2,
+.satquery-markdown h3,
+.satquery-markdown h4,
+.satquery-markdown h5,
+.satquery-markdown h6 {
+  font-family: var(--font-display, var(--font-body));
+  color: var(--brand-forest);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.satquery-markdown h1 {
+  font-size: 1.32rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.satquery-markdown h2 {
+  font-size: 1.18rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.satquery-markdown h3 {
+  font-size: 1.06rem;
+}
+
+.satquery-markdown h4 {
+  font-size: 0.98rem;
+}
+
+.satquery-markdown strong {
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.satquery-markdown em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.satquery-markdown ul,
+.satquery-markdown ol {
+  margin-top: 0.35rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1.4rem;
+}
+
+.satquery-markdown ul {
+  list-style-type: disc;
+}
+
+.satquery-markdown ol {
+  list-style-type: decimal;
+}
+
+.satquery-markdown li {
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+.satquery-markdown li > p {
+  margin-bottom: 0.25rem;
+}
+
+.satquery-markdown li > ul,
+.satquery-markdown li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Inline Code */
+.satquery-inline-code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: rgba(18, 79, 61, 0.08);
+  color: var(--brand-forest);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(18, 79, 61, 0.15);
+  font-weight: 500;
+}
+
+/* Code Blocks */
+.satquery-pre-wrapper {
+  margin: 0.75rem 0;
+}
+
+.satquery-code-block {
+  background: #121E1A;
+  color: #E2ECE8;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #1E342D;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.satquery-code-header {
+  display: flex;
+  justify-content: flex-end;
+  background: #0B1411;
+  padding: 4px 12px;
+  border-bottom: 1px solid #1E342D;
+}
+
+.satquery-code-header .code-lang-tag {
+  font-size: 0.72rem;
+  color: #7AA295;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.satquery-code-block pre.code-pre {
+  margin: 0;
+  padding: 12px 14px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.satquery-code-block pre.code-pre code {
+  font-family: var(--font-mono);
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Blockquotes */
+.satquery-markdown blockquote {
+  margin: 0.75rem 0;
+  padding: 8px 14px;
+  background: rgba(18, 79, 61, 0.04);
+  border-left: 3.5px solid var(--brand-forest);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+}
+
+.satquery-markdown blockquote p {
+  margin-bottom: 0.35rem;
+}
+
+.satquery-markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+.satquery-table-wrapper {
+  margin: 0.75rem 0;
+  overflow-x: auto;
+}
+
+.satquery-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.satquery-table th {
+  background: var(--bg-card-subtle, #FAF8F3);
+  font-weight: 600;
+  color: var(--brand-forest);
+  padding: 8px 12px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.satquery-table td {
+  padding: 7px 12px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.satquery-table tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+/* Links */
+.satquery-md-link {
+  color: var(--brand-forest);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: opacity var(--transition-fast);
+}
+
+.satquery-md-link:hover {
+  opacity: 0.8;
+}
+
+/* Horizontal Rules */
+.satquery-markdown hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
 /* Typing / Loading indicator */
 .assistant-typing-status {
   display: inline-flex;

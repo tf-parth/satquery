@@ -20,6 +20,7 @@ import {
   Sparkles,
   Layers
 } from 'lucide-react';
+import MarkdownRenderer from './MarkdownRenderer';
 
 export default function HistoryView({ 
   investigations = [], 
@@ -225,9 +226,9 @@ export default function HistoryView({
                 </div>
 
                 {inv.findings && (
-                  <p className="history-card-findings text-secondary text-xs">
-                    {inv.findings}
-                  </p>
+                  <div className="history-card-findings text-secondary text-xs">
+                    <MarkdownRenderer content={inv.findings} />
+                  </div>
                 )}
               </div>
 

@@ -19,6 +19,7 @@ import {
 import { INDIA_DEMO_SCENES, getDemoScene } from '../../../backend/src/services/demoData.js';
 import { analyzeImageApi } from '../utils/api.js';
 import { inspectLocalImageFile } from '../utils/geotiffClient.js';
+import MarkdownRenderer from './MarkdownRenderer';
 
 function formatFileSize(bytes) {
   if (!bytes || isNaN(bytes)) return "";
@@ -671,12 +672,12 @@ export default function ImageAnalysisView({
 
                     {/* AI Answer */}
                     <div className="ia-result-answer text-sm font-body mt-2.5 leading-relaxed">
-                      {turn.answer}
+                      <MarkdownRenderer content={turn.answer} />
                     </div>
 
                     {turn.explanation && (
                       <div className="ia-result-explanation text-xs text-secondary font-body mt-2 leading-normal">
-                        {turn.explanation}
+                        <MarkdownRenderer content={turn.explanation} />
                       </div>
                     )}
 

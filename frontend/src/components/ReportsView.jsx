@@ -25,6 +25,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { INDIA_DEMO_SCENES, getDemoScene } from '../../../backend/src/services/demoData.js';
+import MarkdownRenderer from './MarkdownRenderer';
 
 export default function ReportsView({ 
   activeInvestigation, 
@@ -298,7 +299,7 @@ export default function ReportsView({
           </p>
           <div className="doc-callout-box font-mono text-xs mt-2">
             <strong>SYNTHESIS: </strong>
-            <span>{selectedReport.answer}</span>
+            <MarkdownRenderer content={selectedReport.answer} />
           </div>
         </div>
 

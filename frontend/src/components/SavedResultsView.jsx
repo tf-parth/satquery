@@ -19,6 +19,7 @@ import {
   Sparkles,
   Layers
 } from 'lucide-react';
+import MarkdownRenderer from './MarkdownRenderer';
 
 export default function SavedResultsView({ 
   savedItems = [], 
@@ -203,7 +204,9 @@ export default function SavedResultsView({
                 {item.findings && (
                   <div className="saved-finding-box text-xs">
                     <strong className="text-teal font-mono">Findings: </strong>
-                    <p className="text-secondary">{item.findings}</p>
+                    <div className="text-secondary mt-1">
+                      <MarkdownRenderer content={item.findings} />
+                    </div>
                   </div>
                 )}
 
