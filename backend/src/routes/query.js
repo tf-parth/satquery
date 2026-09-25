@@ -55,8 +55,8 @@ router.post('/query', async (req, res) => {
     }
 
     // 2. If a specific Indian location or coordinate was detected/provided, resolve it
-    if (!matchedScene && (locString || effectiveQuery)) {
-      matchedScene = await resolveIndianLocation(locString || effectiveQuery);
+    if (!matchedScene && locString) {
+      matchedScene = await resolveIndianLocation(locString);
     }
 
     // 3. Fallback based on specific query intent or national view (never defaulting to Mumbai)

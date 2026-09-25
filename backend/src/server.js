@@ -30,7 +30,7 @@ for (const envPath of envPaths) {
         if (match) {
           const key = match[1];
           const val = (match[2] || '').trim().replace(/^['"]|['"]$/g, '');
-          if (!process.env[key]) process.env[key] = val;
+          process.env[key] = val;
         }
       }
     } catch (e) {}

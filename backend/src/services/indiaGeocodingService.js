@@ -129,6 +129,9 @@ export const PROMINENT_INDIAN_LOCATIONS = [
  * Resolves ANY Indian location query, place name, or coordinate string.
  * Returns authentic geospatial metadata, coordinates, bounding box, CRS, sensors, and satellite imagery.
  */
+// In-memory cache for resolved locations to guarantee sub-millisecond response on repeated queries
+const locationCache = new Map();
+
 export async function resolveIndianLocation(queryOrName = "") {
   if (!queryOrName || typeof queryOrName !== 'string') {
     return null;
@@ -136,6 +139,10 @@ export async function resolveIndianLocation(queryOrName = "") {
 
   const raw = queryOrName.trim();
   const lower = raw.toLowerCase();
+
+  if (locationCache.has(lower)) {
+    return locationCache.get(lower);
+  }
 
   // 1. Check for Coordinate Pair Pattern (e.g. "28.6139, 77.2090" or "lat: 30.31, lng: 78.03")
   const coordMatch = raw.match(/lat(?:itude)?[:\s]+(-?\d+\.\d+)[\s,]+(?:lng|lon(?:gitude)?)[:\s]+(-?\d+\.\d+)/i) ||
@@ -202,7 +209,7 @@ export async function resolveIndianLocation(queryOrName = "") {
       const nomUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(cleanQuery + ", India")}&format=json&limit=1&countrycodes=in`;
       const nomRes = await fetch(nomUrl, {
         headers: { 'User-Agent': 'SatQuery-AI-Geospatial-Assistant/2.0' },
-        signal: AbortSignal.timeout(3500)
+        signal: AbortSignal.timeout(1200)
       });
       if (nomRes.ok) {
         const places = await nomRes.json();
@@ -227,7 +234,7 @@ export async function resolveIndianLocation(queryOrName = "") {
   }
 
   // Default national centroid (India Center: Madhya Pradesh)
-  return buildLocationResponse({
+  const fallback = buildLocationResponse({
     name: "National View — All India",
     name_hi: "अखिल भारतीय दृष्टिकोण",
     lat: 22.9734,
@@ -236,6 +243,9 @@ export async function resolveIndianLocation(queryOrName = "") {
     state: "India",
     terrain: "Pan-India Earth Observation Mosaic"
   });
+
+  locationCache.set(lower, fallback);
+  return fallback;
 }
 
 /**

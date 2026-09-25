@@ -18,8 +18,6 @@ import {
   Bookmark,
   FileText
 } from 'lucide-react';
-import GroundingCanvas from './GroundingCanvas';
-import ExecutionTracePanel from './ExecutionTracePanel';
 import { queryIndiaApi, queryAgentApi } from '../utils/api';
 
 export default function NewInvestigationView({ 
@@ -226,48 +224,55 @@ export default function NewInvestigationView({
         } catch (imgErr) {
           console.warn("Failed to encode image to base64:", imgErr);
         }
-
-        // Also pass through remote-sensing agent for telemetry / detections
-        try {
-          const agentRes = await queryAgentApi({
-            files: [currentFile],
-            query: trimmed,
-            language: isHi ? 'hi' : 'en'
-          });
-
-          telemetry = {
-            task: agentRes.task,
-            confidence: agentRes.confidence,
-            detections: agentRes.detections || [],
-            segments: agentRes.segments || [],
-            change_map: agentRes.change_map || null,
-            evidence: agentRes.evidence || [],
-            previewUrl: currentFilePreview?.url,
-            execution_trace: agentRes.execution_trace || []
-          };
-        } catch (rasterErr) {
-          console.warn("Local raster extraction note:", rasterErr.message);
-        }
       }
 
-      // Query Gemini via backend POST /api/v1/query
-      const res = await queryIndiaApi({
+      // Execute Gemini reasoning and agent telemetry concurrently in parallel for maximum speed
+      const indiaQueryPromise = queryIndiaApi({
         query: trimmed,
         conversation: historyPayload,
         language: isHi ? 'hi' : 'en',
         image: imagePayload,
         context: {
           location: selectedLocation,
-          advancedOptions,
-          analysisResultsSummary: telemetry ? `Detected ${telemetry.detections.length} structures; Task: ${telemetry.task}; Confidence: ${telemetry.confidence}` : null
+          advancedOptions
         }
       });
+
+      let agentPromise = null;
+      if (currentFile) {
+        agentPromise = queryAgentApi({
+          files: [currentFile],
+          query: trimmed,
+          language: isHi ? 'hi' : 'en'
+        }).catch(rasterErr => {
+          console.warn("Local raster extraction note:", rasterErr.message);
+          return null;
+        });
+      }
+
+      const [res, agentRes] = await Promise.all([
+        indiaQueryPromise,
+        agentPromise ? agentPromise : Promise.resolve(null)
+      ]);
 
       if (!res.success && res.error) {
         throw { errorCode: res.error, message: res.message };
       }
 
       geminiAnswer = res.answer;
+
+      if (agentRes) {
+        telemetry = {
+          task: agentRes.task,
+          confidence: agentRes.confidence,
+          detections: agentRes.detections || [],
+          segments: agentRes.segments || [],
+          change_map: agentRes.change_map || null,
+          evidence: agentRes.evidence || [],
+          previewUrl: currentFilePreview?.url,
+          execution_trace: agentRes.execution_trace || []
+        };
+      }
 
       // If remote sensing pipeline returned spatial telemetry
       if (!telemetry && res.scene) {
@@ -769,31 +774,9 @@ export default function NewInvestigationView({
                           {turn.text}
                         </div>
 
-                        {/* Optional Spatial Visualizations / Telemetry */}
+                        {/* Optional Telemetry Details & Evidence */}
                         {turn.telemetry && (
                           <div className="results-block">
-                            {/* Canvas viewer if detections or change map present */}
-                            {(turn.telemetry.change_map || (turn.telemetry.detections && turn.telemetry.detections.length > 0)) && (
-                              <div className="results-canvas-box">
-                                {turn.telemetry.change_map ? (
-                                  <div className="change-map-viewer">
-                                    <img 
-                                      src={turn.telemetry.change_map} 
-                                      alt="Change Map" 
-                                      className="change-map-img" 
-                                    />
-                                  </div>
-                                ) : (
-                                  <GroundingCanvas 
-                                    imageUrl={turn.telemetry.previewUrl || "/assets/demo/mumbai_coastal_2024.jpg"}
-                                    detections={turn.telemetry.detections || []}
-                                    segments={turn.telemetry.segments || []}
-                                    layers={turn.telemetry.map_layers || []}
-                                    language={language}
-                                  />
-                                )}
-                              </div>
-                            )}
 
                             {/* Evidence pills if available */}
                             {turn.telemetry.evidence && turn.telemetry.evidence.length > 0 && (
@@ -828,14 +811,7 @@ export default function NewInvestigationView({
                               </button>
                             </div>
 
-                            {/* Execution trace if available */}
-                            {turn.telemetry.execution_trace && turn.telemetry.execution_trace.length > 0 && (
-                              <ExecutionTracePanel 
-                                trace={turn.telemetry.execution_trace}
-                                confidence={turn.telemetry.confidence}
-                                language={language}
-                              />
-                            )}
+
                           </div>
                         )}
                       </>

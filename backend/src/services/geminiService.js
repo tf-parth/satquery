@@ -35,8 +35,8 @@ export async function askGemini({
     };
   }
 
-  const preferredModel = process.env.GEMINI_MODEL || "gemini-3.6-flash";
-  const candidateModels = [preferredModel, "gemini-3.5-flash-lite", "gemini-flash-latest"].filter(
+  const preferredModel = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+  const candidateModels = [preferredModel, "gemini-3.5-flash-lite", "gemini-3.6-flash"].filter(
     (v, i, a) => a.indexOf(v) === i
   );
 
@@ -115,8 +115,8 @@ export async function askGemini({
       parts: [{ text: systemInstruction || SATQUERY_SYSTEM_PROMPT }]
     },
     generationConfig: {
-      temperature: 0.35,
-      maxOutputTokens: 800
+      temperature: 0.3,
+      maxOutputTokens: 600
     }
   };
 
@@ -130,7 +130,7 @@ export async function askGemini({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bodyPayload),
-        signal: AbortSignal.timeout(25000)
+        signal: AbortSignal.timeout(12000)
       });
 
 
