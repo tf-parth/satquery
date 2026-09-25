@@ -17,6 +17,7 @@ import {
   Crop
 } from 'lucide-react';
 import { INDIA_ADMIN_REGIONS, INDIA_DEMO_SCENES } from '../../../backend/src/services/demoData.js';
+import { BACKEND_URL } from '../utils/api';
 
 export default function IndiaMap({ 
   onSelectScene, 
@@ -258,7 +259,7 @@ export default function IndiaMap({
 
     // 3. Fallback: Query backend dynamic location resolver
     try {
-      const res = await fetch(`/api/locations/resolve?q=${encodeURIComponent(searchQuery)}`);
+      const res = await fetch(`${BACKEND_URL}/api/locations/resolve?q=${encodeURIComponent(searchQuery)}`);
       if (res.ok) {
         const data = await res.json();
         if (data.location && data.location.coordinates) {

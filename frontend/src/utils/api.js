@@ -1,8 +1,11 @@
 // SatQuery AI - API Client
 // Supports both SIH 26167 Official Endpoints (/api/...) and legacy endpoints (/api/v1/...)
 
-const API_BASE = '/api/v1';
-const SIH_BASE = '/api';
+const BACKEND_URL = import.meta.env.VITE_API_URL || '';
+const API_BASE = `${BACKEND_URL}/api/v1`;
+const SIH_BASE = `${BACKEND_URL}/api`;
+
+export { BACKEND_URL, API_BASE, SIH_BASE };
 
 export async function checkBackendHealth() {
   try {
@@ -11,7 +14,7 @@ export async function checkBackendHealth() {
     return await res.json();
   } catch (err) {
     try {
-      const fallbackRes = await fetch('/api/healthz');
+      const fallbackRes = await fetch(`${SIH_BASE}/healthz`);
       if (fallbackRes.ok) return await fallbackRes.json();
     } catch (e) {
       // Ignore
